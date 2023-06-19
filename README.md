@@ -1,4 +1,1 @@
-# capstone-back-end
-AUTHORS
-
-DESCRIPTION
+## Capstone Back-end code
