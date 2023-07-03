@@ -1,24 +1,16 @@
 {
   "name": "capstone-back-end",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/viktrine/capstone-back-end.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/viktrine/capstone-back-end/issues"
-  },
-  "homepage": "https://github.com/viktrine/capstone-back-end#readme",
   "dependencies": {
-    "concurrently": "^8.2.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "express": "^4.18.2",
-    "mongoose": "^7.3.1"
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "morgan": "~1.9.1"
   }
 }
