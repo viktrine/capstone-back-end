@@ -1,25 +1,22 @@
 var express = require('express');
+const usermodel = require('../models/usermodel');
 var router = express.Router();
-
+usermodel
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', async function(req, res, next) { 
+const users = await usermodel.find();
+  res.json(users);
 });
 
 
-router.post("/users", (req, res)=>{
-  var name = req.body.name;
-  var email = req.body.email;
-  var password = req.body.password;
-  var phone = req.body.phone;
-
-
-  res.send({saved: true});
-})
-
-router.post("/users/login", (req, res)=>{
+router.post("/", async (req, res)=>{
+  const users = await usermodel.insertMany(req.body);
   
-  res.send({loggedin: true});
+const response = {"responsecode":"1000","responsemessage":"user added successfully"}
+
+  res.json(response);
 })
+
+
 
 module.exports = router;
