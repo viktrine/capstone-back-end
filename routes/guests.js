@@ -37,5 +37,17 @@ guestRouter.get("/", async (req, res) => {
   res.json(guests);
 });
 
+
+// get one guest
+guestRouter.get("/:id", async (req, res) => {
+    // define search id
+    const searchId = req.params.id;
+
+    // get one guest
+    const guest = await guestModel.find({"id":searchId});
+  
+    // return guests
+    res.json(guest);
+  });
 // export router
 module.exports = guestRouter;
