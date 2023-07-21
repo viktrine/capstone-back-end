@@ -13,6 +13,7 @@ guestRouter.post("/", async function(req, res, next){
     // get the number of existing guests
     const nextId = await guestModel.count() + 1;
 
+    // get the body
     const guest = req.body;
     guest.id = nextId;
 

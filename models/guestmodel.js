@@ -7,6 +7,7 @@ const guestschema = new mongoose.Schema({
     "phone":{type: String, required: true},
     "host":{type: String, required: true},
     "idno":{type: String, required: true},
+    "id":{type: String, required: true},
     "event":{type: String, required: true}
 });
 
