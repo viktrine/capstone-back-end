@@ -22,7 +22,7 @@ guestRouter.post("/", async function (req, res, next) {
   // create response
   const response = {
     responsecode: "1000",
-    responsemessage: "user added successfully",
+    responsemessage: "Guest added successfully",
   };
 
   res.send(response);
@@ -48,6 +48,28 @@ guestRouter.get("/:id", async (req, res) => {
   
     // return guests
     res.json(guest);
+  });
+
+
+  // edit a guest
+  // add guest
+guestRouter.put("/:id", async function (req, res, next) {
+    // define edit id
+    const editId = req.params.id;
+  
+    // get the body
+    const guest = req.body;
+  
+    // add guest
+   await  guestModel.updateOne({"id":editId}, guest);
+  
+    // create response
+    const response = {
+      responsecode: "1000",
+      responsemessage: "Guest updated successfully",
+    };
+  
+    res.send(response);
   });
 // export router
 module.exports = guestRouter;
