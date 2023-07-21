@@ -10,6 +10,8 @@ const guestRouter = require('./routes/guests');
 const mongoose = require('mongoose');
 const eventModel = require('./models/eventModel');
 const getalleventsRouter=require('./routes/events');
+const parkingRouter = require('./routes/parkings');
+
 var app = express();
 
 // view engine setup
@@ -51,11 +53,8 @@ db.on("error", () => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/guests", guestRouter);
-//app.use('/events',addeventsRouter);
 app.use('/events',getalleventsRouter);
-//app.use('/events',updateventsRouter);
-//app.use('/events',deleteeventsRouter);
-//app.use('/events',geteventbyidRouter);
+app.use("/parkingslots", parkingRouter);
 
 
 
