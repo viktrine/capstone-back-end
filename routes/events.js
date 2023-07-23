@@ -26,12 +26,24 @@ router.get("/:id", async (req, res) => {
 });
 
 // add event query
-router.post("/", async (req, res)=>{
-  const events = await eventModel.insertMany(req.body);
-   const response= {
+router.post("/", async function (req, res, next) {
+  // get the number of existing event
+  const nextId = (await eventModel.count()) + 1;
+
+  // get the body
+  const event = req.body;
+  event.id = nextId;
+
+  // add event
+  eventModel.insertMany(event);
+
+  // create response
+  const response = {
     responsecode: "1000",
-    responsemessage:"user added successfully",
-   }
+    responsemessage: "Event added successfully",
+  };
+
+  res.send(response);
 });
 
 module.exports = router
