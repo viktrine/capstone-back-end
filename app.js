@@ -10,6 +10,8 @@ const guestRouter = require('./routes/guests');
 const mongoose = require('mongoose');
 const eventsRouter=require('./routes/events');
 const { title } = require('process');
+const eventModel = require('./models/eventModel');
+const parkingRouter = require('./routes/parkings');
 var app = express();
 
 
@@ -54,6 +56,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/guests", guestRouter);
 app.use('/events',eventsRouter);
+app.use('/parkingslots',parkingRouter);
 
 
 
