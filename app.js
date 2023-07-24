@@ -8,9 +8,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const guestRouter = require('./routes/guests');
 const mongoose = require('mongoose');
+const eventsRouter=require('./routes/events');
+const { title } = require('process');
 const eventModel = require('./models/eventModel');
-const getalleventsRouter=require('./routes/events');
+const parkingRouter = require('./routes/parkings');
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,11 +55,8 @@ db.on("error", () => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/guests", guestRouter);
-//app.use('/events',addeventsRouter);
-app.use('/events',getalleventsRouter);
-//app.use('/events',updateventsRouter);
-//app.use('/events',deleteeventsRouter);
-//app.use('/events',geteventbyidRouter);
+app.use('/events',eventsRouter);
+app.use('/parkingslots',parkingRouter);
 
 
 
