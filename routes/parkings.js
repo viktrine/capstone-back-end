@@ -59,7 +59,6 @@ parkingRouter.put("/:id", async(req, res)=>{
           };
     }
     res.send(response);
-
 });
 
 // export parking router
