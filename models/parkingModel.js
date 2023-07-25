@@ -3,6 +3,7 @@ const { default: mongoose } = require("mongoose");
 
 // define a parking model
 const parkingSchema = new mongoose.Schema({
+    "id":{type:String},
     "building":{type: String ,required: true},
     "location":{type: String ,required: true},
     "number":{type: String ,required: true},
