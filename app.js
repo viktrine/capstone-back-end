@@ -40,7 +40,7 @@ const db = mongoose.connection;
 
 // check if okay
 db.on("open", () => {
-  console.log("Database coneccted successfuly");
+  console.log("Database connected successfuly");
 });
 
 // check if error
