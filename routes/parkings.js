@@ -34,5 +34,33 @@ parkingRouter.post("/", async (req, res) => {
   res.send(response);
 });
 
+// avail / book a parking slot
+parkingRouter.put("/:id", async(req, res)=>{
+    var response = null;
+    // get the id param
+    const id = req.params.id;
+
+    const updateBody = req.body;
+
+    // get parking slot with given id
+    const parkingSlot = await parkingModel.find({"id":id});
+
+    if(parkingSlot.length < 1){
+        response = {
+            responsecode: "4000",
+            responsemessage: "Parking not available",
+          };
+    }else{
+        console.log(updateBody);
+        await parkingModel.updateOne({ id: id }, updateBody);
+        response = {
+            responsecode: "1000",
+            responsemessage: "Parking updated accordingly",
+          };
+    }
+    res.send(response);
+
+});
+
 // export parking router
 module.exports = parkingRouter;
